@@ -1,0 +1,14 @@
+{
+    "name": "zeke/exam-git",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit": "^6.2",
+        "friendsofphp/php-cs-fixer": "^2.3"
+    },
+    "authors": [
+        {
+            "name": "Zeke",
+            "email": "hnam.nguyen1708@gmail.com"
+        }
+    ]
+}
