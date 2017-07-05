@@ -1,7 +1,7 @@
 {
     "name": "zeke/exam-git",
     "require": {
-        "phpunit/phpunit": "^6.2",
+        "phpunit/phpunit": "^5.7",
         "friendsofphp/php-cs-fixer": "^2.3"
     },
     "authors": [
@@ -9,5 +9,15 @@
             "name": "Zeke",
             "email": "hnam.nguyen1708@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+          "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "Test\\": "tests/"
+        }
+    }
 }
