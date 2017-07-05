@@ -8,18 +8,16 @@ class StringFormater
     /**
      * StringFormater constructor.
      */
-    public function __construct(String $string)
-    {
-        $this->_string = $string;
-    }
+    public function __construct()
+    { }
 
-    public function concat(String $string1, String $string2)
+    static function concat($string1, $string2)
     {
         $result = $string1 . $string2;
         return $result;
     }
     
-    public function toCamelCase(String $string1, String $string2)
+    static function toCamelCase($string1, $string2)
     {
         $string1 = str_replace('-', ' ', $string1);
     	$string1 = str_replace('_', ' ', $string1);
@@ -28,25 +26,25 @@ class StringFormater
         
         $string2 = str_replace('-', ' ', $string2);
     	$string2 = str_replace('_', ' ', $string2);
-    	$string2 = ucwords(strtolower($string2));
+    	$string2 = strtolower($string2);
     	$string2 = str_replace(' ', '', $string2);
 
-    	return $string1 . $string2;
+    	return StringFormater::concat($string1, $string2);
     }
     
-    public function prefix(String $string1, String $string2, BOOL $toCamel = false)
+    static function prefix($string1, $string2, BOOL $toCamel = NULL)
     {
         if ($toCamel)
-            return toCamelCase($string2, $string1);
+            return StringFormater::toCamelCase($string2, $string1);
         else
-            return $string2 . $string1;
+            return StringFormater::concat($string2, $string1);
     }
     
-    public function suffix(String $string1, String $string2, BOOL $toCamel = false)
+    static function suffix($string1, $string2, BOOL $toCamel = NULL)
     {
         if ($toCamel)
-            return toCamelCase($string1, $string2);
+            return StringFormater::toCamelCase($string1, $string2);
         else
-            return $string1 . $string2;
+            return StringFormater::concat($string1, $string2);
     }
 }
